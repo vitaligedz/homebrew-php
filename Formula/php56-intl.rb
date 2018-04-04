@@ -20,6 +20,8 @@ class Php56Intl < AbstractPhp56Extension
 
   def install
     ENV.cxx11
+    ENV.append "CPPFLAGS", "-DU_USING_ICU_NAMESPACE=1"
+
     Dir.chdir "ext/intl"
 
     safe_phpize
